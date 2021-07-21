@@ -6,7 +6,7 @@ const createMovie = (connection, table) => newMovie => [
 const getMovieById = (connection, table) => id =>
   connection.table(table).find(movie => movie.id === id)
 
-const getMovies = (connection, table) => connection.table(table)
+const getMovies = (connection, table) => () => connection.table(table)
 
 export const movieService = connection => {
   const table = 'movies'
